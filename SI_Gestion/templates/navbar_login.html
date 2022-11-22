@@ -1,0 +1,63 @@
+
+<style>
+#login {
+  border: 2px solid orange;
+  padding: 5px;
+  border-radius: 50px;
+  background: black;
+}
+</style>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'homeindex' %}">SIG Gestion</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="indexauth.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'homeindex' %}">Home
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </a></li>
+          <li class="dropdown"><a href="#"><span>Application</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a style="color:orange" href="{% url 'mapsindex' %}">Map View</a></li>
+               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>-->
+                <ul>
+                  <!--  <li><a href="#">Deep Drop Down 1</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 2</a></li>-->
+                  <!--  <li><a href="#">Deep Drop Down 3</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 4</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 5</a></li>-->
+                </ul>
+              </li>
+              <li><a href="{% url 'forms' %}">Collecte</a></li>
+            <!--  <li><a href="#">Drop Down 3</a></li>-->
+               <!--  <li><a href="#">Drop Down 4</a></li>-->
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'dbindex' %}">
+
+            {% if request.user.is_authenticated %}
+            <h5 style="color:orange" id="login"><b>{{request.user}}</b></h5>
+            {% endif%}
+          </a></li>
+
+           <li><a class="nav-link scrollto" href="{% url 'dbindex' %}" style="color:white" >Dashboard
+          </a></li>
+
+          <li><a class="nav-link scrollto" href="{% url 'deconnexion' %}">LogOut
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+

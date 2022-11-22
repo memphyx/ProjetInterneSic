@@ -1,0 +1,16 @@
+{% extends 'basemap.html' %}
+
+{% load static  %}
+
+   {% block MapData %}
+      <header>
+              <div class="container-xxl">
+                  <h3>
+                      {% for data in api %}
+                        {{api.localite}}
+                      {% endfor %}
+                  </h3>
+
+              </div>
+      </header>
+   {% endblock MapData %}

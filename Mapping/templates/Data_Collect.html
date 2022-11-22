@@ -1,0 +1,212 @@
+{% extends 'basemap.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block Data_Collect %}
+<br>
+<br>
+<br>
+ <style>
+        input.largerCheckbox {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+
+<div class="container">
+
+<div class="card">
+  <h2 class="card-header" align="center">Espace de saisie de données physique</h2>
+  <div class="card-body">
+
+	  <form method="POST" novalidate>
+
+		<div class="row justify-content-md-center">
+			<div class="col-xl-12 col-lg-6 col-md-6 col-sm-12 col-12">
+				<div class="login-screen">
+					<div class="login-box">
+					{% csrf_token %}
+					<br>
+						<div class="row gutters">
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Numero Du Compteur</span>
+									{% render_field form2.num_compt class="form-control" placeholder=form2.num_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="First Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Amperage du compteur</span>
+									{% render_field form2.amperage_compt class="form-control" placeholder=form2.amperage_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Phase du compteur</span>
+									{% render_field form2.phase_compt class="form-control" placeholder=form2.phase_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+
+						</div>
+						<div class="row gutters">
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Type compteur</span>
+									{% render_field form2.type_compt class="form-control" placeholder=form2.type_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Longitude</span>
+									{% render_field form2.longitude_compt class="form-control" placeholder=form2.longitude_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Latitude</span>
+									{% render_field form2.latitude_compt class="form-control" placeholder=form2.latitude_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+
+						</div>
+						<div class="row gutters">
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Nom sur compteur</span>
+									{% render_field form2.nom_sur_compt class="form-control" placeholder=form2.nom_sur_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Contact du Proprio</span>
+									{% render_field form2.tel_sur_compt class="form-control" placeholder=form2.tel_sur_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Localité</span>
+									{% render_field form2.localite_compt class="form-control" placeholder=form2.localite_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+
+						</div>
+						<div class="row gutters">
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Date d'abonnement</span>
+										{% render_field form2.date_abonmt_compt class="form-control" placeholder=form2.date_abonmt_compt.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Date d'instllation</span>
+										{% render_field form2.date_dinstallation class="form-control" placeholder=form2.date_dinstallation.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+
+							<br>
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<span class="text-gray">Activité du Compteur</span>
+										{% render_field form2.compt_actif class="form-control largerCheckbox" placeholder=form2.compt_actif.label %}
+									<!--<input type="text" class="form-control" placeholder="Last Name">-->
+								</div>
+							</div>
+
+						</div>
+						<div class="actions clearfix" align="center">
+							<button type="submit" class="btn btn-primary">SAVE</button>
+								<button type="reset" class="btn btn-danger">RESET</button>
+						</div>
+					<!--	<div class="or">
+							<span>or signup using</span>
+						</div>
+						<div class="row gutters">
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<button type="submit" class="btn btn-tw btn-block">Twitter</button>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<button type="submit" class="btn btn-fb btn-block">Facebook</button>
+							</div>
+						</div>-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+  </div>
+</div>
+</div>
+  <br>  <br>
+
+<div class="container-xxl">
+	<table class="table">
+
+		  <thead align="center">
+			<tr>
+			  <th scope="col">ID</th>
+			  <th scope="col">nom_sur_Equipt</th>
+			  <th scope="col">tel_sur_compt</th>
+			  <th scope="col">num_compt</th>
+			  <th scope="col">amperage_compt</th>
+			  <th scope="col">phase_compt</th>
+			  <th scope="col">type_compt</th>
+			  <th scope="col">longitude</th>
+			  <th scope="col">latitude</th>
+			  <th scope="col">localite</th>
+			  <th scope="col">date_abonmt</th>
+			  <th scope="col">date_instal</th>
+			  <th scope="col">compt_actif</th>
+				<th scope="col">Detail</th>
+				<th scope="col">update</th>
+				<th scope="col">delete</th>
+			</tr>
+		  </thead>
+
+		  <tbody>
+		  {% for data in dbdata %}
+		  <a href="#">
+			<tr align="center">
+			     <td>{{data.id}}</td>
+			     <td>{{data.nom_sur_compt}}</td>
+			     <td>{{data.tel_sur_compt}}</td>
+				 <td>{{data.num_compt}}</td>
+				 <td>{{data.amperage_compt}}</td>
+				 <td>{{data.phase_compt}}</td>
+				 <td>{{data.type_compt}}</td>
+				 <td>{{data.longitude_compt}}</td>
+				 <td>{{data.latitude_compt}}</td>
+				 <td>{{data.localite_compt}}</td>
+				 <td>{{data.date_abonmt_compt}}</td>
+				 <td>{{data.date_dinstallation}}</td>
+				 <td>{{data.compt_actif}}</td> </a>
+				 <td><button type="button" class="btn btn-primary btn-sm">Detail</button></td>
+				 <td><button type="button" class="btn btn-secondary btn-sm">Update</button></td>
+				 <td><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+
+			</tr>
+		  {% endfor %}
+
+		  </tbody>
+		</table>
+
+
+</div>
+
+<br>
+<br>
+
+{% endblock Data_Collect %}

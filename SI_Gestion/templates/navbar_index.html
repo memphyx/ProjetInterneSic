@@ -1,0 +1,64 @@
+
+
+<style>
+#login {
+  border: 2px solid orange;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+#signup {
+  border: 2px solid green;
+  padding: 5px;
+  border-radius: 50px;
+}
+</style>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'homeindex' %}">SIG Gestion</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="indexauth.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'homeindex' %}">Home
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </a></li>
+          <li class="dropdown"><a href="#"><span>Mes Applis</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'mapsindex' %}">Map VIEW</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>-->
+                <ul>
+                <!--  <li><a href="#">Deep Drop Down 1</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 2</a></li>-->
+                  <!--  <li><a href="#">Deep Drop Down 3</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 4</a></li>-->
+                   <!-- <li><a href="#">Deep Drop Down 5</a></li>-->
+                </ul>
+              </li>
+              <!-- <li><a href="#">Drop Down 2</a></li>-->
+              <!-- <li><a href="#">Drop Down 3</a></li>-->
+              <!-- <li><a href="#">Drop Down 4</a></li>-->
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+         <!-- <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>-->
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'dblogin' %}"><h5 id="login">Login
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          </h5></a></li>
+           <li><a class="nav-link scrollto " href="{% url 'create_account' %}"><h5 id="signup">Signup
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>          </h5></a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
