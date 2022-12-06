@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('SI_Gestion.urls')),
     path('Mapping/', include('Mapping.urls')),
-    path('App_Auth/', include('App_Auth.urls')),
+    # path('App_Auth/', include('App_Auth.urls')),
     path('Backoffice/', include('Backoffice.urls')),
     # path('Dashboard/', include('Dashboard.urls')),
 

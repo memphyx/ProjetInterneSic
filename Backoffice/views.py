@@ -1,11 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import RegisterForm, LoginForm, resetpwForm, EquipementsForm, DirectionForm, AgentForm, ClientForm, \
-    Emplacement_EquipForm, Emplacement_raccordForm, Raccordement_ligne_electriqueForm
+from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from .models import Equipements, Directions, Agent, Client
+from .models import *
 
 
 # Create your views here.
@@ -32,6 +31,9 @@ def buttons(request):
 
 
 def create_account(request):
+    #retour a la page daccueil si lutilisateur est conn
+    if request.user.is_authenticated:
+        return redirect('dbindex')
     if request.method == 'POST':
         form1 = RegisterForm(request.POST)
         if form1.is_valid():
@@ -127,11 +129,15 @@ def forms(request):
 def forms_details(request):
     form2 = EquipementsForm()
     tous_les_equipements = Equipements.objects.all()
+    compteur_actif = tous_les_equipements.filter(activite_compteur="Actif").count()
+    compteur_non_actif = tous_les_equipements.filter(activite_compteur="Non_Actif").count()
     total_des_equipement = tous_les_equipements.count()
     context = {
         'form2': form2,
         'tous_les_equipements': tous_les_equipements,
-        'total_des_equipement': total_des_equipement
+        'total_des_equipement': total_des_equipement,
+        'compteur_actif': compteur_actif,
+        'compteur_non_actif': compteur_non_actif,
     }
     return render(request, 'forms_details.html', context)
 
@@ -252,7 +258,7 @@ def Raccordement_ligne_electrique(request):
             form.save()
         return redirect('Emplacement_equip')
     form2 = Raccordement_ligne_electriqueForm()
-    # dbdata = Equipement.objects.all()
+    # tous_les_raccordement_electrique = Equipement.objects.all()
     context = {
 
         'form2': form2,

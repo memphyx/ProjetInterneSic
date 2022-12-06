@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'SI_Gestion',
     'Mapping',
-    'App_Auth',
     'Backoffice',
     'Dashboard',
     'widget_tweaks',
