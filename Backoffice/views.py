@@ -12,18 +12,18 @@ def dbindex(request):
     import json
     import requests
 
-    header = {
-        "Authorization": "Token f137b9110ad8f79faa24e0194bdfb6329e0e8877"
-    }
-    kobodata = requests.get('https://kf.kobotoolbox.org/api/v2/assets/aJDTcJNqBnRkzpdr5U6uJQ.json', headers=header)
+    # header = {
+    #   "Authorization": "Token f137b9110ad8f79faa24e0194bdfb6329e0e8877"
+    # }
+    # kobodata = requests.get('https://kf.kobotoolbox.org/api/v2/assets/aJDTcJNqBnRkzpdr5U6uJQ.json', headers=header)
 
-    api = json.loads(kobodata.content)
+    # api = json.loads(kobodata.content)
 
-    context = {
-        'api': api
-    }
+    # context = {
+    #     'api': api
+    #  }
 
-    return render(request, 'dbindex.html', context)
+    return render(request, 'dbindex.html')
 
 
 def buttons(request):
@@ -31,7 +31,7 @@ def buttons(request):
 
 
 def create_account(request):
-    #retour a la page daccueil si lutilisateur est conn
+    # retour a la page daccueil si lutilisateur est conn
     if request.user.is_authenticated:
         return redirect('dbindex')
     if request.method == 'POST':
@@ -129,17 +129,29 @@ def forms(request):
 def forms_details(request):
     form2 = EquipementsForm()
     tous_les_equipements = Equipements.objects.all()
-    compteur_actif = tous_les_equipements.filter(activite_compteur="Actif").count()
-    compteur_non_actif = tous_les_equipements.filter(activite_compteur="Non_Actif").count()
+    # compteur_actif = tous_les_equipements.filter(activite_compteur="Actif").count()
+    # compteur_non_actif = tous_les_equipements.filter(activite_compteur="Non_Actif").count()
     total_des_equipement = tous_les_equipements.count()
     context = {
         'form2': form2,
         'tous_les_equipements': tous_les_equipements,
         'total_des_equipement': total_des_equipement,
-        'compteur_actif': compteur_actif,
-        'compteur_non_actif': compteur_non_actif,
+        # 'compteur_actif': compteur_actif,
+        # 'compteur_non_actif': compteur_non_actif,
     }
     return render(request, 'forms_details.html', context)
+
+
+def forms_update(request):
+    return render(request, 'forms_update.html')
+
+
+def forms_view(request):
+    return render(request, 'forms_view.html')
+
+
+def forms_delete(request):
+    return render(request, 'forms_delete.html')
 
 
 def Direction(request):
@@ -160,6 +172,18 @@ def Direction(request):
         'tous_les_directions': tous_les_directions
     }
     return render(request, 'Direction.html', context)
+
+
+def direction_view(request):
+    return render(request, 'direction_view.html')
+
+
+def direction_delete(request):
+    return render(request, 'direction_delete.html')
+
+
+def direction_update(request):
+    return render(request, 'direction_update.html')
 
 
 def detail_direction(request):
@@ -205,19 +229,59 @@ def agent_detail(request):
     return render(request, 'agent_detail.html', context)
 
 
+def agent_view(request):
+    return render(request, 'agent_view.html')
+
+
+def agent_delete(request):
+    return render(request, 'agent_delete.html')
+
+
+def agent_update(request):
+    return render(request, 'agent_update.html')
+
+
 def client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('client')
+
     form2 = ClientForm()
-    # dbdata = Equipement.objects.all()
+  #  tous_les_client = Client.objets.all()
+   # total_client = tous_les_client.count()
     context = {
         'form2': form2,
-        # 'dbdata': dbdata
+   #     'tous_les_client': tous_les_client,
+    #    'total_client': total_client
     }
     return render(request, 'client.html', context)
+
+
+def client_detail(request):
+    form2 = ClientForm()
+    tous_les_client = Client.objets.all()
+    total_client = tous_les_client.count()
+
+    context = {
+        'form2': form2,
+        'tous_les_client': tous_les_client,
+        'total_client': total_client
+    }
+    return render(request, 'client_detail.html', context)
+
+
+def client_view(request):
+    return render(request, 'client_view.html')
+
+
+def client_delete(request):
+    return render(request, 'client_delete.html')
+
+
+def client_update(request):
+    return render(request, 'client_update.html')
 
 
 def Emplacement_equip(request):

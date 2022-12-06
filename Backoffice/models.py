@@ -27,8 +27,6 @@ class Agent(models.Model):
 
 
 class Client(models.Model):
-    num_client = models.CharField(verbose_name="Numero Client", primary_key=True, unique=True, null=False,
-                                  max_length=25)
     nom_complet = models.CharField(verbose_name='Nom complet', max_length=255, null=False)
     contact_client = models.CharField(verbose_name='Contact', max_length=11, null=False)
     Lieu_habitation = models.CharField(verbose_name='Lieu habitation', max_length=255, null=False)
